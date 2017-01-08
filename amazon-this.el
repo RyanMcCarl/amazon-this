@@ -165,7 +165,7 @@ Possible values include: `browse-url', `browse-url-generic',
         (call-interactively 'amazon-translate-query-translate)
       (error "[amazon-this]: `amazon-translate-query-translate' function not found in `amazon-translate' package"))))
 
-(defcustom amazon-this-base-url "https://en.amazon."
+(defcustom amazon-this-base-url "https://affiliate-program.amazon."
   "The base url to use in amazon searches.
 
 This will be appended with `amazon-this-location-suffix', so you
@@ -173,14 +173,14 @@ shouldn't include the final \"com\" here."
   :type 'string
   :group 'amazon-this)
 
-(defcustom amazon-this-location-suffix "org"
+(defcustom amazon-this-location-suffix "com"
   "The url suffix associated with your location (com, co.uk, fr, etc)."
   :type 'string
   :group 'amazon-this)
 
 (defun amazon-this-url ()
   "URL for amazon searches."
-  (concat amazon-this-base-url amazon-this-location-suffix "/wiki/%s"))
+  (concat amazon-this-base-url amazon-this-location-suffix "/home/productlinks/search?ac-ms-src=ac-nav&category=all&keywords=%s&sortby"))
 
 (defcustom amazon-this-error-regexp '(("^[^:]*:[0-9 ]*:\\([0-9 ]*:\\)? *" ""))
   "List of (REGEXP REPLACEMENT) pairs to parse error strings."
